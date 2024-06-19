@@ -1,0 +1,49 @@
+.navbar {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 2rem 2.8rem;
+  font-weight: 200;
+
+  ul {
+    list-style: none;
+    display: flex;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 15%;
+    font-size: 1.6rem;
+    li {
+      cursor: pointer;
+      transition: 0.5s all;
+      &:not(:last-child) {
+        margin-right: 5.5rem;
+      }
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.navProfileContainer {
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+.navProfile {
+  width: 3.6rem;
+  height: 3.6rem;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.2rem;
+}
