@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 import Home from "../views/Home";
 import Rent from "../views/Rent";
 import AuthWrapper from "../views/Auth/AuthWrapper";
+import Dashboard from "../views/Dashboard";
 
 const routes: RouterProps[] = [
   { path: AppRoutes.AUTH, component: <AuthWrapper /> },
@@ -21,6 +22,14 @@ const routes: RouterProps[] = [
         component: <Rent />
       }
     ]
+  },
+  {
+    path: AppRoutes.RENT,
+    component: <Rent />
+  },
+  {
+    path: AppRoutes.CHART,
+    component: <Dashboard />
   },
   { path: "*", component: <AuthWrapper /> }
 ];

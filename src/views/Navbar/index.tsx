@@ -9,6 +9,9 @@ const Navbar = () => {
         <ul className={styles.navItems}>
           <li>Home</li>
           <li>Rent</li>
+          <li>Subscription</li>
+          <li>Invoice</li>
+          <li>ET Sheet</li>
         </ul>
         <div className={styles.navProfileContainer}>
           <div className={styles.navProfile}>

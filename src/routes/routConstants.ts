@@ -4,5 +4,7 @@ export const AppRoutes = {
   LOGIN: "/login",
   APP_COMPONENTS: "/",
   HOME: "/",
-  DASHBOARD: "/dashboard"
+  DASHBOARD: "/dashboard",
+  RENT:"/rent",
+  CHART:"/chart"
 };
