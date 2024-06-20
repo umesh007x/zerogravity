@@ -16,7 +16,7 @@ const CreateProjectForm = () => {
     <div className={styles.createFormContainer}>
       <div className={styles.inputContainer}>
         <p className={styles.inputTitle}>Project Name</p>
-        <input className={styles.input} placeholder="Enter admin name here" />
+        <input className={styles.input} placeholder="Enter admin name here..." />
       </div>
 
       <div className={styles.inputContainer}>
