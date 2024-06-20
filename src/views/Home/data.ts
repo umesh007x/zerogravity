@@ -78,7 +78,7 @@ export const columns = [
     key: "name"
   },
   {
-    title: "Monthly/Yearly",
+    title: "Revenue",
     dataIndex: "actual_cost",
     key: "actual_cost"
   },

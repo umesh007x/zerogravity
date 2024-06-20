@@ -11,7 +11,7 @@ const CreateProjectForm:FC<CreateProjectFormProps> = (props) => {
     estimated_hours: '',
     employee_cost: '',
     star_date: '',
-    invoice_type: 'Fixed'
+    invoice_type: 'fixed_cost'
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -46,6 +46,7 @@ const CreateProjectForm:FC<CreateProjectFormProps> = (props) => {
     } finally {
       // setIsSubmitting(false);
     }
+    
     props.handleOnCancel()
 
     // Handle form submission, such as sending the data to a server
@@ -117,7 +118,7 @@ const CreateProjectForm:FC<CreateProjectFormProps> = (props) => {
           value={formData.invoice_type}
           onChange={handleChange}
         >
-          <option value="Fixed">Fixed</option>
+          <option value="fixed_cost">Fixed</option>
           <option value="TM">T&M</option>
         </select>
       </div>
