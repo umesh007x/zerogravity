@@ -35,6 +35,7 @@ const CreateProjectForm = () => {
           placeholder="Enter project name here"
           value={formData.projectName}
           onChange={handleChange}
+          
         />
       </div>
 
