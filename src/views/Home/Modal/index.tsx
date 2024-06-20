@@ -9,14 +9,14 @@ interface CreatProjectModalProps {
 }
 
 const CreatProjectModal: FC<CreatProjectModalProps> = ({ isOpen, handleOnCancel }) => {
+  
   return (
     <Modal
       centered
       open={isOpen}
-      onCancel={handleOnCancel}
-      onClose={handleOnCancel}
+      footer={null}
       title="Create Project">
-      <CreateProjectForm />
+      <CreateProjectForm handleOnCancel={handleOnCancel} />
     </Modal>
   );
 };

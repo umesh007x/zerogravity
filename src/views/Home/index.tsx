@@ -4,9 +4,12 @@ import styles from "./home.module.scss";
 import { columns, data, options, statsData } from "./data";
 import { Button, Input, Select, Table } from "antd";
 import CreatProjectModal from "./Modal";
+import { useEffect } from "react";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [projects, setprojects] = useState([]);
+
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -14,6 +17,28 @@ const Home = () => {
   const handleCreateProject = () => {
     setIsModalOpen(true);
   };
+  const getCall = async()=>{
+    try {
+      const response = await fetch('https://oarfish-endless-foxhound.ngrok-free.app/api/v1/projects', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log(response,"...response")
+      // setprojects(response)
+      // const data =  response.b.json();
+      console.log('Project created successfully:', data);
+    } catch (err) {
+      // setError(err.message);
+    } finally {
+      // setIsSubmitting(false);
+    }
+  }
+
+  useEffect(()=>{
+    getCall()
+  },[])
   return (
     <>
       <Navbar />

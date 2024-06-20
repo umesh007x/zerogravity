@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import styles from "./createForm.module.scss";
 
-const CreateProjectForm = () => {
+interface CreateProjectFormProps {
+  handleOnCancel: () => void;
+}
+const CreateProjectForm:FC<CreateProjectFormProps> = (props) => {
   const [formData, setFormData] = useState({
-    projectName: '',
-    estimatedCost: '',
-    estimatedHours: '',
-    employeeCost: '',
-    startDate: '',
-    invoiceType: 'Fixed'
+    name: '',
+    estimated_cost: '',
+    estimated_hours: '',
+    employe_cost: '',
+    star_date: '',
+    invoice_type: 'Fixed'
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -19,9 +22,32 @@ const CreateProjectForm = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
+
+    try {
+      const response = await fetch('https://oarfish-endless-foxhound.ngrok-free.app/api/v1/projects', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create project');
+      }
+
+      const data = await response.json();
+      console.log('Project created successfully:', data);
+    } catch (err) {
+      // setError(err.message);
+    } finally {
+      // setIsSubmitting(false);
+    }
+    props.handleOnCancel()
+
     // Handle form submission, such as sending the data to a server
   };
 
@@ -30,10 +56,10 @@ const CreateProjectForm = () => {
       <div className={styles.inputContainer}>
         <p className={styles.inputTitle}>Project Name</p>
         <input
-          name="projectName"
+          name="name"
           className={styles.input}
           placeholder="Enter project name here"
-          value={formData.projectName}
+          value={formData.name}
           onChange={handleChange}
           
         />
@@ -42,10 +68,10 @@ const CreateProjectForm = () => {
       <div className={styles.inputContainer}>
         <p className={styles.inputTitle}>Estimated Cost</p>
         <input
-          name="estimatedCost"
+          name="estimated_cost"
           className={styles.input}
           placeholder="Enter cost here"
-          value={formData.estimatedCost}
+          value={formData.estimated_cost}
           onChange={handleChange}
         />
       </div>
@@ -53,10 +79,10 @@ const CreateProjectForm = () => {
       <div className={styles.inputContainer}>
         <p className={styles.inputTitle}>Estimated Hours</p>
         <input
-          name="estimatedHours"
+          name="estimated_hours"
           className={styles.input}
           placeholder="Enter hours here"
-          value={formData.estimatedHours}
+          value={formData.estimated_hours}
           onChange={handleChange}
         />
       </div>
@@ -64,10 +90,10 @@ const CreateProjectForm = () => {
       <div className={styles.inputContainer}>
         <p className={styles.inputTitle}>Employee Cost</p>
         <input
-          name="employeeCost"
+          name="employe_cost"
           className={styles.input}
           placeholder="Enter employee cost here"
-          value={formData.employeeCost}
+          value={formData.employe_cost}
           onChange={handleChange}
         />
       </div>
@@ -76,9 +102,9 @@ const CreateProjectForm = () => {
         <p className={styles.inputTitle}>Start Date</p>
         <input
           type="date"
-          name="startDate"
+          name="star_date"
           className={styles.input}
-          value={formData.startDate}
+          value={formData.star_date}
           onChange={handleChange}
         />
       </div>
@@ -86,9 +112,9 @@ const CreateProjectForm = () => {
       <div className={styles.inputContainer}>
         <p className={styles.inputTitle}>Invoice Type</p>
         <select
-          name="invoiceType"
+          name="invoice_type"
           className={styles.input}
-          value={formData.invoiceType}
+          value={formData.invoice_type}
           onChange={handleChange}
         >
           <option value="Fixed">Fixed</option>
@@ -96,7 +122,7 @@ const CreateProjectForm = () => {
         </select>
       </div>
 
-      <button type="submit" hidden className={styles.submitButton}>Submit</button>
+      <button type="submit" className={styles.submitButton}>Submit</button>
     </form>
   );
 };
