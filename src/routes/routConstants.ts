@@ -6,5 +6,6 @@ export const AppRoutes = {
   HOME: "/",
   DASHBOARD: "/dashboard",
   RENT:"/rent",
-  CHART:"/chart"
+  CHART:"/chart",
+  SUBSCRIPTION:"/subscription"
 };

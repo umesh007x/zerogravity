@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Navbar from "../Navbar";
-import styles from "./home.module.scss";
-import { columns, data, options } from "./data";
+import styles from "./subscription.module.scss";
 import { Button, Input, Select, Table } from "antd";
-import CreatProjectModal from "./Modal";
 import { useEffect } from "react";
+import Navbar from "../../Navbar";
+import CreatProjectModal from "../Modal";
+import { columns, data } from "./data";
 
-const Home = () => {
+const Subscription = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [projects, setprojects] = useState();
   const [projectData, setprojectData] = useState<any>();
@@ -42,7 +42,7 @@ const Home = () => {
   useEffect(()=>{
     const getCall = async()=>{
       try {
-        const response = await fetch('https://oarfish-endless-foxhound.ngrok-free.app/api/v1/projects', {
+        const response = await fetch('https://oarfish-endless-foxhound.ngrok-free.app/api/v1/subscriptions', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -65,25 +65,14 @@ const Home = () => {
     <>
       <Navbar />
       <div className={styles.home}>
-        <div className={styles.statsContainer}>
-          {statsData.map((item, index) => (
-            <div className={styles.statsBox} key={index}>
-              <p className={styles.statsTitle}>{item.title}</p>
-              <p className={styles.statsValue}>{item.value}</p>
-            </div>
-          ))}
-          <div className={styles.Select}>
-            <Select defaultValue="this month" options={options} size="large" />
-          </div>
-        </div>
         <div className={styles.tableInfo}>
           <div className={styles.tableTop}>
-            <h1>Project List</h1>
+            <h1>Subscription List</h1>
             <div className={styles.tools}>
               <Input
                 style={{ width: 400, marginRight: "2rem" }}
                 size="large"
-                placeholder="Search Project"
+                placeholder="Search Subscription"
               />
               <Button onClick={handleCreateProject} type="primary" size="large" shape="round">
                 Create
@@ -91,13 +80,14 @@ const Home = () => {
             </div>
           </div>
           <div className={styles.table}>
-            <Table columns={columns} dataSource={projects} />
+            <Table columns={columns} dataSource={data} />
           </div>
         </div>
       </div>
+      {/* <h1>Under Construction</h1> */}
       <CreatProjectModal isOpen={isModalOpen} handleOnCancel={handleCloseModal} />
     </>
   );
 };
 
-export default Home;
+export default Subscription;

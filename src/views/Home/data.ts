@@ -1,21 +1,4 @@
-export const statsData = [
-  {
-    title: "Total Project",
-    value: "34"
-  },
-  {
-    title: "Gained",
-    value: "$234,123,556"
-  },
-  {
-    title: "Spent",
-    value: "$234,123,556"
-  },
-  {
-    title: "Current Value",
-    value: "$234,123,556"
-  }
-];
+
 
 export const options = [
   {
@@ -86,8 +69,8 @@ export const data = [
 export const columns = [
   {
     title: "Project No",
-    dataIndex: "projectNum",
-    key: "projectNum"
+    dataIndex: "id",
+    key: "id"
   },
   {
     title: "Name",
@@ -95,9 +78,9 @@ export const columns = [
     key: "name"
   },
   {
-    title: "Gained",
-    dataIndex: "gained",
-    key: "gained"
+    title: "Monthly/Yearly",
+    dataIndex: "actual_cost",
+    key: "actual_cost"
   },
   {
     title: "Spent",
@@ -105,8 +88,8 @@ export const columns = [
     key: "spent"
   },
   {
-    title: "Value",
-    dataIndex: "value",
-    key: "value"
+    title: "Profit",
+    dataIndex: "profit",
+    key: "profit"
   }
 ];
