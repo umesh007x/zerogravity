@@ -1,0 +1,51 @@
+.statsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4rem 2.5rem;
+}
+
+.statsBox {
+  background-color: #fff;
+  border-radius: 18px;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-right: 2.5rem;
+}
+.statsTitle {
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+
+.statsValue {
+  font-size: 1.8rem;
+  font-size: 600;
+}
+.select {
+  width: 100%;
+}
+
+.tableInfo {
+  background-color: #fff;
+  padding: 2.5rem;
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+}
+.tableTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tools {
+  display: flex;
+  align-items: center;
+}
+.table {
+  margin-top: 2.5rem;
+}

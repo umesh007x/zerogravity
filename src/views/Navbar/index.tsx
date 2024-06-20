@@ -1,16 +1,23 @@
 import React from "react";
 import styles from "./navbar.module.scss";
 import { UserOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (route: string) => {
+    navigate(route);
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContainer}>
         <ul className={styles.navItems}>
-          <li>Home</li>
+          <li onClick={() => handleNavigation("/")}>Home</li>
           <li>Rent</li>
           <li>Subscription</li>
-          <li>Invoice</li>
+          <li onClick={() => handleNavigation("/invoices")}>Invoice</li>
           <li>ET Sheet</li>
         </ul>
         <div className={styles.navProfileContainer}>

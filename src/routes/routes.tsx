@@ -6,6 +6,7 @@ import Home from "../views/Home";
 import Rent from "../views/Rent";
 import AuthWrapper from "../views/Auth/AuthWrapper";
 import Dashboard from "../views/Dashboard";
+import Invoices from "../views/Invoices";
 
 const routes: RouterProps[] = [
   { path: AppRoutes.AUTH, component: <AuthWrapper /> },
@@ -26,6 +27,10 @@ const routes: RouterProps[] = [
   {
     path: AppRoutes.RENT,
     component: <Rent />
+  },
+  {
+    path: AppRoutes.INVOICES,
+    component: <Invoices />
   },
   {
     path: AppRoutes.CHART,
