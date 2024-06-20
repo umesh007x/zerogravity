@@ -121,9 +121,8 @@ const CreateProjectForm:FC<CreateProjectFormProps> = (props) => {
           <option value="TM">T&M</option>
         </select>
       </div>
-      <div className={styles.submitButton}>
-      <button type="submit" >Submit</button>
-      </div>
+
+      <button type="submit" className={styles.submitButton}>Submit</button>
     </form>
   );
 };

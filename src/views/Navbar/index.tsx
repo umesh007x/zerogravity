@@ -16,7 +16,7 @@ const Navbar = () => {
         <ul className={styles.navItems}>
           <li onClick={() => handleNavigation("/")}>Home</li>
           <li>Rent</li>
-          <li>Subscription</li>
+          <li onClick={() => handleNavigation("/subscription")}>Subscription</li>
           <li onClick={() => handleNavigation("/invoices")}>Invoice</li>
           <li>ET Sheet</li>
         </ul>
